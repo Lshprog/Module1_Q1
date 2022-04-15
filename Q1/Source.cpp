@@ -63,8 +63,15 @@ void stackread::Stack::read_and_result()
 			int result;
 			int x, y;
 
-			x = stackread::Stack::pop();
-			y = stackread::Stack::pop();
+			if (head != nullptr)
+				x = stackread::Stack::pop();
+			if (head != nullptr)
+				y = stackread::Stack::pop();
+			else {
+				std::cout << "Incorrect line !!! ";
+				F.close();
+				return;
+			};
 
 			if (int(buffer) == 42)
 				result = x * y;
